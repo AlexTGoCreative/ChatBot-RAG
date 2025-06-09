@@ -316,8 +316,3 @@ async def get_metrics():
         "total_requests": len([m for m in performance_monitor.metrics if m["operation"] == "total_request"]),
         "failed_requests": len([m for m in performance_monitor.metrics if m["operation"] == "failed_request"])
     }
-
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.getenv("PORT", 10000))
-    uvicorn.run("chat_api:app", host="0.0.0.0", port=port, reload=True)
